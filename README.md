@@ -10,14 +10,15 @@
 
 基于 **NIST NVD API v2** 的命令行工具，用于查询 **CVE / CPE**。
 
-> 参考 Python 项目 `vehemont/nvdlib` 的行为：默认限速、参数校验、输出拆分等。
 
 ## 🏷️ 徽章
 
-请把下面的 `OWNER/REPO` 替换成你的 GitHub 仓库地址。
+把下面的 `REPO_URL` 替换成你的仓库地址即可：
 
-- CI: `https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg`
-- Release: `https://github.com/OWNER/REPO/actions/workflows/release.yml/badge.svg`
+`REPO_URL = https://github.com/tongchengbin/nvdlib`
+
+[![CI](https://github.com/tongchengbin/nvdlib/actions/workflows/ci.yml/badge.svg)](https://github.com/tongchengbin/nvdlib/actions/workflows/ci.yml)
+[![Release](https://github.com/tongchengbin/nvdlib/actions/workflows/release.yml/badge.svg)](https://github.com/tongchengbin/nvdlib/actions/workflows/release.yml)
 
 ## 🧭 目录
 
@@ -65,16 +66,41 @@ go build ./cmd/nvd
 
 ## 📦 安装
 
-### 方式 A：从 GitHub Release 下载
-
-当你打 tag（例如 `v0.1.0`）后，GitHub Actions 会自动构建并上传多平台二进制到 Release。
-
-### 方式 B：从源码构建
+### 方式 A：从源码构建
 
 ```bash
 git clone <your-repo>
 cd <your-repo>
 go build ./cmd/nvd
+```
+
+### 方式 B：从 GitHub Release 下载二进制
+
+当你打 tag（例如 `v0.0.1`）后，GitHub Actions 会自动构建并把多平台二进制上传到 GitHub Release。
+
+下载时选择对应平台的文件名：
+
+- Windows: `nvd-windows-amd64.exe`
+- Linux: `nvd-linux-amd64` / `nvd-linux-arm64`
+- macOS: `nvd-darwin-amd64` / `nvd-darwin-arm64`
+
+安装示例：
+
+Windows（PowerShell）：
+
+```powershell
+# 下载后放到任意目录，例如 C:\tools\nvd.exe
+# 然后把目录加入 PATH
+$env:Path += ";C:\tools"
+nvd --help
+```
+
+Linux/macOS：
+
+```bash
+chmod +x ./nvd-<goos>-<goarch>
+sudo mv ./nvd-<goos>-<goarch> /usr/local/bin/nvd
+nvd --help
 ```
 
 ### 环境变量
