@@ -1,0 +1,6 @@
+# Binaries
+/nvd.exe
+/nvd
+
+# Go
+/go.sum
