@@ -76,7 +76,9 @@ go build ./cmd/nvd
 
 ### 方式 B：从 GitHub Release 下载二进制
 
-当你打 tag（例如 `v0.0.1`）后，GitHub Actions 会自动构建并把多平台二进制上传到 GitHub Release。
+从 GitHub 仓库的 Releases 页面下载最新版本二进制：
+
+https://github.com/tongchengbin/nvdlib/releases
 
 下载时选择对应平台的文件名：
 
@@ -205,7 +207,7 @@ NVD 官方建议脚本请求间隔数秒。
 - `.github/workflows/ci.yml`
   - push / PR 自动构建多平台产物并上传 artifacts
 - `.github/workflows/release.yml`
-  - 推送 `v*` tag 自动创建 Release 并上传二进制
+  - 维护者：推送 `v*` tag 自动创建 Release 并上传二进制
 
 ## ❓ FAQ
 
